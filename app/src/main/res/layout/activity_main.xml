@@ -97,6 +97,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/small_text_margin"
         android:textSize="@dimen/default_content_textSize"
+        app:layout_constraintBottom_toBottomOf="@+id/likes_icon"
         app:layout_constraintStart_toEndOf="@+id/likes_icon"
         app:layout_constraintTop_toBottomOf="@+id/horizontalBarrier2"
         tools:text="@sample/posts.json/data/likes" />
@@ -118,6 +119,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/small_text_margin"
         android:textSize="@dimen/default_content_textSize"
+        app:layout_constraintBottom_toBottomOf="@+id/shares_icon"
         app:layout_constraintStart_toEndOf="@+id/shares_icon"
         app:layout_constraintTop_toBottomOf="@+id/horizontalBarrier2"
         tools:text="@sample/posts.json/data/shares" />
@@ -130,6 +132,7 @@
         android:layout_margin="@dimen/small_text_margin"
         android:textSize="@dimen/default_content_textSize"
 
+        app:layout_constraintBottom_toBottomOf="@+id/views_icon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/horizontalBarrier2"
         tools:text="@sample/posts.json/data/views" />
