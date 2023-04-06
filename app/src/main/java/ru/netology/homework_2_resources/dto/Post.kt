@@ -1,4 +1,4 @@
-package data_classes
+package ru.netology.homework_2_resources.dto
 
 data class Post(
     val id: Long,
