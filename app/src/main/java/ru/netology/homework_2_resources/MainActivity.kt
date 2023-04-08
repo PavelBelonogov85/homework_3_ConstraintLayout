@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import ru.netology.homework_2_resources.dto.Post
 import ru.netology.homework_2_resources.databinding.ActivityMainBinding
-import ru.netology.homework_2_resources.dto.StringsVisability
+import ru.netology.homework_2_resources.utils.StringsVisability
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,31 +49,40 @@ class MainActivity : AppCompatActivity() {
             published.text = post.published
             content.text = post.content
             avatar?.setImageResource(R.drawable.ic_launcher_foreground) // но это не из sampledata, тут в общем случае должен быть
-            likesText?.text = StringsVisability().getCoolNumeralString(post.likes)
-            sharesText?.text = StringsVisability().getCoolNumeralString(post.shares)
-            viewsText?.text = StringsVisability().getCoolNumeralString(post.views)
+            likesText?.text = StringsVisability.getCoolNumeralString(post.likes)
+            sharesText?.text = StringsVisability.getCoolNumeralString(post.shares)
+            viewsText?.text = StringsVisability.getCoolNumeralString(post.views)
 
             if (post.likedByMe) {
                 likesIcon?.setImageResource(R.drawable.ic_liked_24) // ! binding самопроизвольно меняет id элементов из snake_case в camelCase !
             }
 
             likesIcon?.setOnClickListener {
-                Log.i("pvl_info", "like")
+                Log.i("pvl_info", "click on like")
                 post.likedByMe = !post.likedByMe
                 likesIcon.setImageResource(
                     if (post.likedByMe) R.drawable.ic_liked_24 else R.drawable.baseline_favorite_border_24
                 )
                 if (post.likedByMe) post.likes++ else post.likes--
-                likesText?.text = StringsVisability().getCoolNumeralString(post.likes)
+                likesText?.text = StringsVisability.getCoolNumeralString(post.likes)
             }
 
             sharesIcon?.setOnClickListener {
-                Log.i("pvl_info", "share")
+                Log.i("pvl_info", "click on share")
                 post.shares++
-                sharesText?.text = StringsVisability().getCoolNumeralString(post.shares)
+                sharesText?.text = StringsVisability.getCoolNumeralString(post.shares)
             }
 
             // как "красиво" объединить однотипные setOnClickListener в общую функцию и передавать в нее только элемент как параметр - см. в записках
+
+            /* << тестирование подписок на события (д/з 4.2) */
+            binding.root.setOnClickListener {
+                Log.i("pvl_info", "click on root")
+            }
+            binding.avatar.setOnClickListener {
+                Log.i("pvl_info", "click on avatar")
+            }
+            /* тестирование подписок на события (д/з 4.2) >> */
         }
     }
 

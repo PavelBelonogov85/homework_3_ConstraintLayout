@@ -1,6 +1,6 @@
-package ru.netology.homework_2_resources.dto
+package ru.netology.homework_2_resources.utils
 
-public final class StringsVisability() {
+object StringsVisability { /* объявляем синглтон - объект в единственном экземпляре */
 
     fun getCoolNumeralString(num:Long):String = when(num) {
         in 0..999 -> num.toString()
